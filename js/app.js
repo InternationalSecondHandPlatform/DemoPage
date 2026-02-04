@@ -5,11 +5,11 @@ const searchInput = document.getElementById("searchInput");
 let products = [];
 
 function formatPrice(value) {
-  return `¥${value}`;
+  return `${t('price')}${value}`;
 }
 
 function setEmptyMessage(message) {
-  empty.textContent = message;
+  empty.textContent = message || t('empty');
   empty.hidden = false;
 }
 
@@ -17,7 +17,7 @@ function render(list) {
   grid.innerHTML = "";
 
   if (!list.length) {
-    setEmptyMessage("没有匹配的商品");
+    setEmptyMessage();
     return;
   }
 
@@ -42,6 +42,12 @@ function render(list) {
   });
 }
 
+// Re-render on language change
+window.addEventListener('languageChanged', () => {
+  sortByLanguage();
+  render(products);
+});
+
 function applySearch() {
   const keyword = searchInput.value.trim().toLowerCase();
   if (!keyword) {
@@ -63,6 +69,7 @@ async function init() {
       throw new Error(`HTTP ${response.status}`);
     }
     products = await response.json();
+    sortByLanguage();
     render(products);
   } catch (error) {
     console.error("无法加载商品数据", error);
@@ -75,6 +82,15 @@ async function init() {
   }
 }
 
+function sortByLanguage() {
+  products.sort((a, b) => {
+    const aMatchesLang = a.language === currentLang ? 0 : 1;
+    const bMatchesLang = b.language === currentLang ? 0 : 1;
+    return aMatchesLang - bMatchesLang;
+  });
+}
+
+document.getElementById('langSwitcher').appendChild(createLanguageSwitcher());
 searchInput.addEventListener("input", applySearch);
 
 init();

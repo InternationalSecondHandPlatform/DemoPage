@@ -10,7 +10,7 @@ function getProductIdFromUrl() {
 }
 
 function formatPrice(value) {
-  return `¥${value}`;
+  return `${t('price')}${value}`;
 }
 
 function renderDetail(item) {
@@ -32,28 +32,33 @@ function renderDetail(item) {
         <div class="detail-price">${formatPrice(item.price)}</div>
         
         <div class="detail-meta">
-          <span>📍 ${item.location}</span>
-          <span>✨ ${item.condition}</span>
-          <span>📅 ${item.postedAt}</span>
+          <span>${t('location')} ${item.location}</span>
+          <span>${t('condition')} ${item.condition}</span>
+          <span>${t('postedAt')} ${item.postedAt}</span>
         </div>
 
         <div class="section">
-          <div class="section-label">商品描述</div>
+          <div class="section-label" data-i18n="productDesc">${t('productDesc')}</div>
           <div class="section-content">${item.description}</div>
         </div>
 
         <div class="section">
-          <div class="section-label">卖家信息</div>
+          <div class="section-label" data-i18n="sellerInfo">${t('sellerInfo')}</div>
           <div class="seller-card">${sellerHTML}</div>
         </div>
 
-        <button id="contactBtn" class="btn-primary btn-contact">一键联系</button>
+        <button id="contactBtn" class="btn-primary btn-contact" data-i18n="contactBtn">${t('contactBtn')}</button>
       </div>
     </div>
   `;
 
   document.getElementById("contactBtn").addEventListener("click", openModal);
 }
+
+// Re-render on language change
+window.addEventListener('languageChanged', () => {
+  if (product) renderDetail(product);
+});
 
 function openModal() {
   modal.hidden = false;
@@ -67,7 +72,7 @@ function closeModal() {
 async function init() {
   const productId = getProductIdFromUrl();
   if (!productId) {
-    detailContainer.innerHTML = "<div class='empty'>商品不存在</div>";
+    detailContainer.innerHTML = `<div class='empty' data-i18n="productNotFound">${t('productNotFound')}</div>`;
     return;
   }
 
@@ -78,14 +83,14 @@ async function init() {
     product = products.find((p) => p.id === productId);
 
     if (!product) {
-      detailContainer.innerHTML = "<div class='empty'>商品不存在</div>";
+      detailContainer.innerHTML = `<div class='empty' data-i18n="productNotFound">${t('productNotFound')}</div>`;
       return;
     }
 
     renderDetail(product);
   } catch (error) {
     console.error("Failed to load product:", error);
-    detailContainer.innerHTML = "<div class='empty'>无法加载商品数据</div>";
+    detailContainer.innerHTML = `<div class='empty' data-i18n="loadError">${t('loadError')}</div>`;
   }
 }
 
@@ -103,9 +108,12 @@ form.addEventListener("submit", (e) => {
   const message = document.getElementById("message").value;
 
   alert(
-    `感谢您的留言！\n\n买家：${buyerName}\n电话：${buyerPhone}\n留言：${message}\n\n卖家会尽快与您联系。`
+    `${t('thankYou')}\n\n${t('buyer')}：${buyerName}\n${t('phone')}：${buyerPhone}\n${t('message')}：${message}\n\n${t('sellerWillContact')}`
   );
   closeModal();
 });
+
+// Add language switcher
+document.getElementById('langSwitcher').appendChild(createLanguageSwitcher());
 
 init();

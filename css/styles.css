@@ -44,6 +44,12 @@ body {
   gap: 12px;
 }
 
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
 .logo {
   width: 40px;
   height: 40px;
@@ -152,6 +158,9 @@ body {
 /* Detail Page */
 .header-detail {
   margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .back-link {
@@ -164,7 +173,39 @@ body {
 }
 
 .back-link:hover {
-  color: var(--muted);
+  color: var(--text-secondary);
+}
+
+/* Language Switcher */
+.lang-switcher {
+  display: flex;
+  gap: 4px;
+  background: var(--card);
+  padding: 4px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+}
+
+.lang-btn {
+  padding: 6px 12px;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lang-btn:hover {
+  background: #f8fafc;
+  color: var(--text);
+}
+
+.lang-btn.active {
+  background: var(--accent);
+  color: white;
 }
 
 .detail-container {

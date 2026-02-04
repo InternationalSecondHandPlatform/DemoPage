@@ -5,6 +5,7 @@
     "price": 159,
     "location": "上海市浦东新区",
     "condition": "95新",
+    "language": "zh",
     "image": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI2YwZjBmMCIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LXNpemU9IjI0IiBmaWxsPSIjNjY2IiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5LZXlib2FyZDwvdGV4dD48L3N2Zz4=",
     "seller": {
       "name": "小王",
@@ -20,6 +21,7 @@
     "price": 2599,
     "location": "北京市朝阳区",
     "condition": "9成新",
+    "language": "zh",
     "image": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI2VlZWVlZSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LXNpemU9IjI0IiBmaWxsPSIjNjY2IiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5MYXB0b3A8L3RleHQ+PC9zdmc+",
     "seller": {
       "name": "李女士",
@@ -35,6 +37,7 @@
     "price": 199,
     "location": "深圳市南山区",
     "condition": "几乎全新",
+    "language": "zh",
     "image": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI2VmZGVmZSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LXNpemU9IjI0IiBmaWxsPSIjNjY2IiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5FYXJidWRzPC90ZXh0Pjwvc3ZnPg==",
     "seller": {
       "name": "张先生",
@@ -49,7 +52,7 @@
     "name": "人体工学椅",
     "price": 420,
     "location": "杭州市西湖区",
-    "condition": "8成新",
+    "language": "zh",
     "image": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI2ZmZTZlNiIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LXNpemU9IjI0IiBmaWxsPSIjNjY2IiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DaGFpcjwvdGV4dD48L3N2Zz4=",
     "seller": {
       "name": "刘先生",
@@ -64,7 +67,7 @@
     "name": "无线路由器",
     "price": 89,
     "location": "成都市武侯区",
-    "condition": "9成新",
+    "language": "zh",
     "image": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI2VmZjBmYiIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LXNpemU9IjI0IiBmaWxsPSIjNjY2IiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Sb3V0ZXI8L3RleHQ+PC9zdmc+",
     "seller": {
       "name": "陈女士",
@@ -79,6 +82,7 @@
     "name": "显示器 27 英寸",
     "price": 699,
     "location": "广州市天河区",
+    "language": "zh",
     "condition": "良好",
     "image": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI2YwZjBmMCIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LXNpemU9IjI0IiBmaWxsPSIjNjY2IiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Nb25pdG9yPC90ZXh0Pjwvc3ZnPg==",
     "seller": {
@@ -88,5 +92,37 @@
     },
     "description": "2K 分辨率，144Hz 刷新率，IPS 屏",
     "postedAt": "2026-01-28"
+  },
+  {
+    "id": "p-1007",
+    "name": "Gaming Keyboard",
+    "price": 129,
+    "location": "San Francisco, CA",
+    "condition": "Like New",
+    "language": "en",
+    "image": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI2YwZjBmMCIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LXNpemU9IjI0IiBmaWxsPSIjNjY2IiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5LZXlib2FyZDwvdGV4dD48L3N2Zz4=",
+    "seller": {
+      "name": "John",
+      "phone": "415****0123",
+      "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMjQiIGN5PSIyNCIgcj0iMjQiIGZpbGw9IiNkMWU3ZjAiLz48Y2lyY2xlIGN4PSIyNCIgY3k9IjEyIiByPSI4IiBmaWxsPSIjNjZiMmZmIi8+PHBhdGggZD0iTTYgMzJjMC00IDQtOCA4LTggOCA0IDQgOCAwIDAgOCAwIDAgOCAwIDQgOHoiIGZpbGw9IiM2NmIyZmYiLz48L3N2Zz4="
+    },
+    "description": "Mechanical RGB keyboard, minimal use, excellent condition",
+    "postedAt": "2026-02-03"
+  },
+  {
+    "id": "p-1008",
+    "name": "Portable USB-C Monitor",
+    "price": 249,
+    "location": "New York, NY",
+    "condition": "Excellent",
+    "language": "en",
+    "image": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI2YwZjBmMCIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LXNpemU9IjI0IiBmaWxsPSIjNjY2IiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Nb25pdG9yPC90ZXh0Pjwvc3ZnPg==",
+    "seller": {
+      "name": "Sarah",
+      "phone": "212****4567",
+      "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMjQiIGN5PSIyNCIgcj0iMjQiIGZpbGw9IiNmZGQxZjYiLz48Y2lyY2xlIGN4PSIyNCIgY3k9IjEyIiByPSI4IiBmaWxsPSIjZjA5YmQyIi8+PHBhdGggZD0iTTYgMzJjMC00IDQtOCA4LTggOCA0IDQgOCAwIDAgOCAwIDAgOCAwIDQgOHoiIGZpbGw9IiNmMDliZDIiLz48L3N2Zz4="
+    },
+    "description": "15.6 inch portable display, perfect for remote work and travel",
+    "postedAt": "2026-02-02"
   }
 ]

@@ -5,24 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>二手交易平台 - Demo</title>
   <link rel="stylesheet" href="./css/styles.css" />
+  <script src="./js/i18n.js"></script>
 </head>
 <body>
   <div class="page">
     <header class="header">
       <div class="header-left">
         <img src="./assets/images/logo.png" alt="Logo" class="logo" />
-        <div class="brand-text">二手交易平台</div>
+        <div class="brand-text" data-i18n="brand">二手交易平台</div>
       </div>
-      <div class="search">
-        <input id="searchInput" type="text" placeholder="按名称搜索" />
+      <div class="header-right">
+        <div class="search">
+          <input id="searchInput" type="text" data-i18n="search" placeholder="按名称搜索" />
+        </div>
+        <div id="langSwitcher"></div>
       </div>
     </header>
 
     <main>
-      <section class="section-title">现有商品</section>
+      <div class="section-title" data-i18n="sectionTitle">现有商品</div>
       <div id="grid" class="grid" aria-live="polite"></div>
-      <div id="empty" class="empty" hidden>没有匹配的商品</div>
+      <div id="empty" class="empty" data-i18n="empty" hidden>没有匹配的商品</div>
     </main>
+  </div>
+
+  <script src="./js/app.js"></script>
+</body>
+</html>
   </div>
 
   <script src="./js/app.js"></script>
