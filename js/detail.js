@@ -113,7 +113,12 @@ form.addEventListener("submit", (e) => {
   closeModal();
 });
 
-// Add language switcher
-document.getElementById('langSwitcher').appendChild(createLanguageSwitcher());
-
-init();
+// Initialize after i18n is ready
+(async function() {
+  // Wait for i18n to be ready
+  if (typeof i18nReady !== 'undefined') {
+    await i18nReady;
+  }
+  
+  await init();
+})();

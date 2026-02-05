@@ -68,8 +68,21 @@ function createLanguageSwitcher() {
   return switcher;
 }
 
-// Initialize
-(async function() {
+// Initialize and expose ready promise
+let i18nReady;
+i18nReady = (async function() {
   await loadTranslations();
+  // Wait for DOM to be ready
+  if (document.readyState === 'loading') {
+    await new Promise(resolve => {
+      document.addEventListener('DOMContentLoaded', resolve);
+    });
+  }
   updatePageLanguage();
+  
+  // Mount language switcher if element exists
+  const langSwitcherEl = document.getElementById('langSwitcher');
+  if (langSwitcherEl && !langSwitcherEl.hasChildNodes()) {
+    langSwitcherEl.appendChild(createLanguageSwitcher());
+  }
 })();

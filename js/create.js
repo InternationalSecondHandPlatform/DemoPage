@@ -129,17 +129,22 @@ async function handleFormSubmit(e) {
   }
 }
 
-// Initialize language switcher
-document.getElementById('langSwitcher').appendChild(createLanguageSwitcher());
-
-previewImage.src = previewImagePlaceholder;
-previewAvatar.src = generateAvatar();
-updatePreview();
-
-window.addEventListener("languageChanged", () => {
+// Initialize after i18n is ready
+(async function init() {
+  // Wait for i18n to be ready
+  if (typeof i18nReady !== 'undefined') {
+    await i18nReady;
+  }
+  
+  previewImage.src = previewImagePlaceholder;
+  previewAvatar.src = generateAvatar();
   updatePreview();
-});
 
-// Form submission event listener
-createForm.addEventListener("submit", handleFormSubmit);
-createForm.addEventListener("input", updatePreview);
+  window.addEventListener("languageChanged", () => {
+    updatePreview();
+  });
+
+  // Form submission event listener
+  createForm.addEventListener("submit", handleFormSubmit);
+  createForm.addEventListener("input", updatePreview);
+})();

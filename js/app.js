@@ -120,9 +120,15 @@ function sortByLanguage() {
   });
 }
 
-document.getElementById('langSwitcher').appendChild(createLanguageSwitcher());
-searchInput.addEventListener("input", applySearch);
-viewModeSelect.value = viewMode;
-viewModeSelect.addEventListener("change", (e) => updateViewMode(e.target.value));
+(async function() {
+  // Wait for i18n to be ready
+  if (typeof i18nReady !== 'undefined') {
+    await i18nReady;
+  }
+  
+  searchInput.addEventListener("input", applySearch);
+  viewModeSelect.value = viewMode;
+  viewModeSelect.addEventListener("change", (e) => updateViewMode(e.target.value));
 
-init();
+  await init();
+})();
