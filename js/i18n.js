@@ -1,4 +1,7 @@
-let currentLang = localStorage.getItem('lang') || 'zh';
+const savedLang = localStorage.getItem('lang');
+const browserLang = (navigator.language || '').toLowerCase();
+const defaultLang = browserLang.startsWith('zh') ? 'zh' : 'en';
+let currentLang = savedLang || defaultLang;
 let translations = {};
 
 async function loadTranslations() {
@@ -17,6 +20,7 @@ function t(key) {
 function setLanguage(lang) {
   currentLang = lang;
   localStorage.setItem('lang', lang);
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
   updatePageLanguage();
 }
 
@@ -78,6 +82,7 @@ i18nReady = (async function() {
       document.addEventListener('DOMContentLoaded', resolve);
     });
   }
+  document.documentElement.lang = currentLang === 'zh' ? 'zh-CN' : 'en';
   updatePageLanguage();
   
   // Mount language switcher if element exists
