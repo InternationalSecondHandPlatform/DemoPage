@@ -1,8 +1,10 @@
 const grid = document.getElementById("grid");
 const empty = document.getElementById("empty");
 const searchInput = document.getElementById("searchInput");
+const viewModeSelect = document.getElementById("viewModeSelect");
 
 let products = [];
+let viewMode = localStorage.getItem("viewMode") || "compact";
 
 function formatPrice(value) {
   return `${t('price')}${value}`;
@@ -28,10 +30,32 @@ function render(list) {
     card.className = "card";
     card.dataset.productId = item.id;
 
+    const detailBlocks = viewMode === "detailed"
+      ? `
+        <div class="card-desc">${item.description || ""}</div>
+        <div class="card-section">
+          <div class="card-section-label">${t("sellerInfo")}</div>
+          <div class="card-seller">
+            <img class="card-avatar" src="${item.seller?.avatar || ""}" alt="${item.seller?.name || ""}" />
+            <div>
+              <div class="card-seller-name">${item.seller?.name || ""}</div>
+              <div class="card-seller-phone">${item.seller?.phone || ""}</div>
+            </div>
+          </div>
+        </div>
+      `
+      : "";
+
     card.innerHTML = `
-      <div class="card-title">${item.name}</div>
-      <div class="card-meta">${item.location} · ${item.condition}</div>
-      <div class="card-price">${formatPrice(item.price)}</div>
+      <div class="card-image-wrap">
+        <img class="card-image" src="${item.image}" alt="${item.name}" />
+      </div>
+      <div class="card-body">
+        <div class="card-title">${item.name}</div>
+        <div class="card-meta">${item.location} · ${item.condition}</div>
+        <div class="card-price">${formatPrice(item.price)}</div>
+        ${detailBlocks}
+      </div>
     `;
 
     card.addEventListener("click", () => {
@@ -60,6 +84,12 @@ function applySearch() {
   );
 
   render(filtered);
+}
+
+function updateViewMode(mode) {
+  viewMode = mode;
+  localStorage.setItem("viewMode", mode);
+  render(products);
 }
 
 async function init() {
@@ -92,5 +122,7 @@ function sortByLanguage() {
 
 document.getElementById('langSwitcher').appendChild(createLanguageSwitcher());
 searchInput.addEventListener("input", applySearch);
+viewModeSelect.value = viewMode;
+viewModeSelect.addEventListener("change", (e) => updateViewMode(e.target.value));
 
 init();

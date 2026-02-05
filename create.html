@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>发布商品 - 二手交易平台</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+  <script src="./js/i18n.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="header-left">
+        <a href="./index.html" class="back-link" data-i18n="backLink">← 返回</a>
+        <div class="brand-text" data-i18n="brand">二手交易平台</div>
+      </div>
+      <div class="header-right">
+        <div id="langSwitcher"></div>
+      </div>
+    </header>
+
+    <main class="create-main">
+      <div class="create-grid">
+        <div class="create-container">
+          <h1 data-i18n="createProductTitle">发布新商品</h1>
+          <form id="createForm" class="create-form">
+            <div class="form-group">
+              <label for="productName" data-i18n="productLabel">商品名称</label>
+              <input type="text" id="productName" required placeholder="输入商品名称" />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="productPrice" data-i18n="priceLabel">价格 (元)</label>
+                <input type="number" id="productPrice" required placeholder="0" min="0" />
+              </div>
+              <div class="form-group">
+                <label for="productCondition" data-i18n="conditionLabel">商品状况</label>
+                <select id="productCondition" required>
+                  <option value="">选择状况</option>
+                  <option value="全新">全新</option>
+                  <option value="几乎全新">几乎全新</option>
+                  <option value="9成新">9成新</option>
+                  <option value="95新">95新</option>
+                  <option value="8成新">8成新</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="productLocation" data-i18n="locationLabel">所在地</label>
+              <input type="text" id="productLocation" required placeholder="例如：上海市浦东新区" />
+            </div>
+
+            <div class="form-group">
+              <label for="productDescription" data-i18n="descriptionLabel">商品描述</label>
+              <textarea id="productDescription" required placeholder="描述商品的详情、特点等..." rows="5"></textarea>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="sellerName" data-i18n="sellerLabel">卖家名称</label>
+                <input type="text" id="sellerName" required placeholder="您的名字" />
+              </div>
+              <div class="form-group">
+                <label for="sellerPhone" data-i18n="phoneLabel">联系电话</label>
+                <input type="tel" id="sellerPhone" required placeholder="138****1234" />
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn-secondary" onclick="window.history.back()" data-i18n="cancelBtn">取消</button>
+              <button type="submit" class="btn-primary" data-i18n="submitBtn">提交</button>
+            </div>
+          </form>
+        </div>
+
+        <aside class="preview-panel">
+          <div class="preview-header">
+            <h2 data-i18n="previewTitle">实时预览</h2>
+            <p data-i18n="previewHint">右侧会展示商品卡片预览</p>
+          </div>
+          <div class="preview-card">
+            <div class="preview-image-wrap">
+              <img id="previewImage" class="preview-image" alt="Preview" />
+            </div>
+            <div class="preview-body">
+              <div id="previewName" class="preview-title">未填写商品名称</div>
+              <div id="previewMeta" class="preview-meta">未填写地点与成色</div>
+              <div id="previewPrice" class="preview-price">¥0</div>
+
+              <div class="preview-section">
+                <div class="preview-label" data-i18n="descriptionLabel">商品描述</div>
+                <div id="previewDescription" class="preview-text">请填写商品描述...</div>
+              </div>
+
+              <div class="preview-section">
+                <div class="preview-label" data-i18n="sellerInfo">卖家信息</div>
+                <div class="preview-seller">
+                  <img id="previewAvatar" class="preview-avatar" alt="Seller" />
+                  <div class="preview-seller-info">
+                    <div id="previewSellerName" class="preview-seller-name">未填写卖家姓名</div>
+                    <div id="previewSellerPhone" class="preview-seller-phone">未填写联系电话</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <!-- Notification Toast -->
+  <div id="notification" class="notification" hidden></div>
+
+  <script src="./js/create.js"></script>
+</body>
+</html>
