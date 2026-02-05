@@ -25,9 +25,23 @@ function updatePageLanguage() {
     const key = el.getAttribute('data-i18n');
     if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
       el.placeholder = t(key);
+    } else if (el.tagName === 'OPTION') {
+      el.textContent = t(key);
     } else {
       el.textContent = t(key);
     }
+  });
+
+  // Handle placeholder translations
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    el.placeholder = t(key);
+  });
+
+  // Handle option element translations
+  document.querySelectorAll('option[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    el.textContent = t(key);
   });
   
   // Dispatch custom event for components to update

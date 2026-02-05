@@ -49,7 +49,19 @@
     "previewSellerPhoneEmpty": "未填写联系电话",
     "viewModeLabel": "显示模式",
     "viewModeCompact": "简约",
-    "viewModeDetailed": "详尽"
+    "viewModeDetailed": "详尽",
+    "selectCondition": "选择状况",
+    "conditionBrand": "全新",
+    "conditionLikeNew": "几乎全新",
+    "condition90": "9成新",
+    "condition95": "95新",
+    "condition80": "8成新",
+    "productNamePlaceholder": "输入商品名称",
+    "productPricePlaceholder": "0",
+    "locationPlaceholder": "例如：上海市浦东新区",
+    "descriptionPlaceholder": "描述商品的详情、特点等...",
+    "sellerNamePlaceholder": "您的名字",
+    "sellerPhonePlaceholder": "138****1234"
   },
   "en": {
     "brand": "Second-Hand Market",
@@ -101,6 +113,18 @@
     "previewSellerPhoneEmpty": "Contact phone",
     "viewModeLabel": "Display",
     "viewModeCompact": "Compact",
-    "viewModeDetailed": "Detailed"
+    "viewModeDetailed": "Detailed",
+    "selectCondition": "Select condition",
+    "conditionBrand": "Brand New",
+    "conditionLikeNew": "Like New",
+    "condition90": "90% New",
+    "condition95": "95% New",
+    "condition80": "80% New",
+    "productNamePlaceholder": "Enter product name",
+    "productPricePlaceholder": "0",
+    "locationPlaceholder": "E.g.: Shanghai, Pudong District",
+    "descriptionPlaceholder": "Describe product details, features, etc...",
+    "sellerNamePlaceholder": "Your name",
+    "sellerPhonePlaceholder": "138****1234"
   }
 }

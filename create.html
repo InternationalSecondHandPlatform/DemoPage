@@ -26,45 +26,45 @@
           <form id="createForm" class="create-form">
             <div class="form-group">
               <label for="productName" data-i18n="productLabel">商品名称</label>
-              <input type="text" id="productName" required placeholder="输入商品名称" />
+              <input type="text" id="productName" required placeholder="输入商品名称" data-i18n-placeholder="productNamePlaceholder" />
             </div>
 
             <div class="form-row">
               <div class="form-group">
                 <label for="productPrice" data-i18n="priceLabel">价格 (元)</label>
-                <input type="number" id="productPrice" required placeholder="0" min="0" />
+                <input type="number" id="productPrice" required placeholder="0" min="0" data-i18n-placeholder="productPricePlaceholder" />
               </div>
               <div class="form-group">
                 <label for="productCondition" data-i18n="conditionLabel">商品状况</label>
                 <select id="productCondition" required>
-                  <option value="">选择状况</option>
-                  <option value="全新">全新</option>
-                  <option value="几乎全新">几乎全新</option>
-                  <option value="9成新">9成新</option>
-                  <option value="95新">95新</option>
-                  <option value="8成新">8成新</option>
+                  <option value="" data-i18n="selectCondition">选择状况</option>
+                  <option value="全新" data-i18n="conditionBrand">全新</option>
+                  <option value="几乎全新" data-i18n="conditionLikeNew">几乎全新</option>
+                  <option value="9成新" data-i18n="condition90">9成新</option>
+                  <option value="95新" data-i18n="condition95">95新</option>
+                  <option value="8成新" data-i18n="condition80">8成新</option>
                 </select>
               </div>
             </div>
 
             <div class="form-group">
               <label for="productLocation" data-i18n="locationLabel">所在地</label>
-              <input type="text" id="productLocation" required placeholder="例如：上海市浦东新区" />
+              <input type="text" id="productLocation" required placeholder="例如：上海市浦东新区" data-i18n-placeholder="locationPlaceholder" />
             </div>
 
             <div class="form-group">
               <label for="productDescription" data-i18n="descriptionLabel">商品描述</label>
-              <textarea id="productDescription" required placeholder="描述商品的详情、特点等..." rows="5"></textarea>
+              <textarea id="productDescription" required placeholder="描述商品的详情、特点等..." data-i18n-placeholder="descriptionPlaceholder" rows="5"></textarea>
             </div>
 
             <div class="form-row">
               <div class="form-group">
                 <label for="sellerName" data-i18n="sellerLabel">卖家名称</label>
-                <input type="text" id="sellerName" required placeholder="您的名字" />
+                <input type="text" id="sellerName" required placeholder="您的名字" data-i18n-placeholder="sellerNamePlaceholder" />
               </div>
               <div class="form-group">
                 <label for="sellerPhone" data-i18n="phoneLabel">联系电话</label>
-                <input type="tel" id="sellerPhone" required placeholder="138****1234" />
+                <input type="tel" id="sellerPhone" required placeholder="138****1234" data-i18n-placeholder="sellerPhonePlaceholder" />
               </div>
             </div>
 
