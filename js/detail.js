@@ -13,33 +13,49 @@ function formatPrice(value) {
   return `${t('price')}${value}`;
 }
 
+function getProductView(item, lang) {
+  const source = item.source?.data || item;
+  const translated = item.translations?.[lang];
+  const mergedSeller = {
+    ...(source.seller || {}),
+    ...(translated?.seller || {})
+  };
+
+  return {
+    ...source,
+    ...(translated || {}),
+    seller: mergedSeller
+  };
+}
+
 function renderDetail(item) {
+  const view = getProductView(item, currentLang);
   const sellerHTML = `
-    <img src="${item.seller.avatar}" alt="头像" class="avatar" />
+    <img src="${view.seller.avatar}" alt="头像" class="avatar" />
     <div class="seller-info">
-      <div class="seller-name">${item.seller.name}</div>
-      <div class="seller-phone">${item.seller.phone}</div>
+      <div class="seller-name">${view.seller.name}</div>
+      <div class="seller-phone">${view.seller.phone}</div>
     </div>
   `;
 
   detailContainer.innerHTML = `
     <div class="detail-wrapper">
-      <img src="${item.image}" alt="${item.name}" class="detail-image" />
+      <img src="${view.image}" alt="${view.name}" class="detail-image" />
       
       <div class="detail-info">
-        <h1 class="detail-title">${item.name}</h1>
+        <h1 class="detail-title">${view.name}</h1>
         
-        <div class="detail-price">${formatPrice(item.price)}</div>
+        <div class="detail-price">${formatPrice(view.price)}</div>
         
         <div class="detail-meta">
-          <span>${t('location')} ${item.location}</span>
-          <span>${t('condition')} ${item.condition}</span>
-          <span>${t('postedAt')} ${item.postedAt}</span>
+          <span>${t('location')} ${view.location}</span>
+          <span>${t('condition')} ${view.condition}</span>
+          <span>${t('postedAt')} ${view.postedAt}</span>
         </div>
 
         <div class="section">
           <div class="section-label" data-i18n="productDesc">${t('productDesc')}</div>
-          <div class="section-content">${item.description}</div>
+          <div class="section-content">${view.description}</div>
         </div>
 
         <div class="section">

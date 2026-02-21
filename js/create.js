@@ -12,6 +12,8 @@ const previewAvatar = document.getElementById("previewAvatar");
 const previewImagePlaceholder =
   "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0iI2VlZWVlZSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LXNpemU9IjI4IiBmaWxsPSIjNjY2IiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Qcm9kdWN0IFByZXZpZXc8L3RleHQ+PC9zdmc+";
 
+const supportedLanguages = ["zh", "en"];
+
 function showNotification(message, type = "success") {
   notification.textContent = message;
   notification.className = `notification ${type}`;
@@ -92,15 +94,14 @@ function updatePreview() {
 
 async function handleFormSubmit(e) {
   e.preventDefault();
-  
-  const productData = {
-    id: generateProductId(),
+
+  const sourceLang = currentLang || "zh";
+  const sourceData = {
     name: document.getElementById("productName").value,
     price: parseInt(document.getElementById("productPrice").value),
     condition: document.getElementById("productCondition").value,
     location: document.getElementById("productLocation").value,
     description: document.getElementById("productDescription").value,
-    language: currentLang || "zh",
     image: `data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI2VlZWVlZSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LXNpemU9IjI0IiBmaWxsPSIjNjY2IiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Qcm9kdWN0PC90ZXh0Pjwvc3ZnPg==`,
     seller: {
       name: document.getElementById("sellerName").value,
@@ -108,6 +109,20 @@ async function handleFormSubmit(e) {
       avatar: generateAvatar()
     },
     postedAt: new Date().toISOString().split('T')[0]
+  };
+
+  const productData = {
+    id: generateProductId(),
+    source: {
+      lang: sourceLang,
+      data: sourceData
+    },
+    translations: supportedLanguages.reduce((acc, lang) => {
+      if (lang !== sourceLang) {
+        acc[lang] = null;
+      }
+      return acc;
+    }, {})
   };
 
   try {

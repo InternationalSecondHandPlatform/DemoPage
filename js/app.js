@@ -10,6 +10,21 @@ function formatPrice(value) {
   return `${t('price')}${value}`;
 }
 
+function getProductView(item, lang) {
+  const source = item.source?.data || item;
+  const translated = item.translations?.[lang];
+  const mergedSeller = {
+    ...(source.seller || {}),
+    ...(translated?.seller || {})
+  };
+
+  return {
+    ...source,
+    ...(translated || {}),
+    seller: mergedSeller
+  };
+}
+
 function setEmptyMessage(message) {
   empty.textContent = message || t('empty');
   empty.hidden = false;
@@ -26,20 +41,21 @@ function render(list) {
   empty.hidden = true;
 
   list.forEach((item) => {
+    const view = getProductView(item, currentLang);
     const card = document.createElement("article");
     card.className = "card";
     card.dataset.productId = item.id;
 
     const detailBlocks = viewMode === "detailed"
       ? `
-        <div class="card-desc">${item.description || ""}</div>
+        <div class="card-desc">${view.description || ""}</div>
         <div class="card-section">
           <div class="card-section-label">${t("sellerInfo")}</div>
           <div class="card-seller">
-            <img class="card-avatar" src="${item.seller?.avatar || ""}" alt="${item.seller?.name || ""}" />
+            <img class="card-avatar" src="${view.seller?.avatar || ""}" alt="${view.seller?.name || ""}" />
             <div>
-              <div class="card-seller-name">${item.seller?.name || ""}</div>
-              <div class="card-seller-phone">${item.seller?.phone || ""}</div>
+              <div class="card-seller-name">${view.seller?.name || ""}</div>
+              <div class="card-seller-phone">${view.seller?.phone || ""}</div>
             </div>
           </div>
         </div>
@@ -48,12 +64,12 @@ function render(list) {
 
     card.innerHTML = `
       <div class="card-image-wrap">
-        <img class="card-image" src="${item.image}" alt="${item.name}" />
+        <img class="card-image" src="${view.image}" alt="${view.name}" />
       </div>
       <div class="card-body">
-        <div class="card-title">${item.name}</div>
-        <div class="card-meta">${item.location} · ${item.condition}</div>
-        <div class="card-price">${formatPrice(item.price)}</div>
+        <div class="card-title">${view.name}</div>
+        <div class="card-meta">${view.location} · ${view.condition}</div>
+        <div class="card-price">${formatPrice(view.price)}</div>
         ${detailBlocks}
       </div>
     `;
@@ -79,9 +95,10 @@ function applySearch() {
     return;
   }
 
-  const filtered = products.filter((item) =>
-    item.name.toLowerCase().includes(keyword)
-  );
+  const filtered = products.filter((item) => {
+    const view = getProductView(item, currentLang);
+    return (view.name || "").toLowerCase().includes(keyword);
+  });
 
   render(filtered);
 }
@@ -114,8 +131,10 @@ async function init() {
 
 function sortByLanguage() {
   products.sort((a, b) => {
-    const aMatchesLang = a.language === currentLang ? 0 : 1;
-    const bMatchesLang = b.language === currentLang ? 0 : 1;
+    const aLang = a.source?.lang || a.language;
+    const bLang = b.source?.lang || b.language;
+    const aMatchesLang = aLang === currentLang ? 0 : 1;
+    const bMatchesLang = bLang === currentLang ? 0 : 1;
     return aMatchesLang - bMatchesLang;
   });
 }
